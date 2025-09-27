@@ -71,6 +71,7 @@
 <body>
     <div class="instruction">FOLLOW US. GET A STICKER</div>
     <div id="qrcode"></div>
+    <button class="fullscreen-btn" onclick="toggleFullscreen()">FULLSCREEN</button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
     <script>
@@ -106,6 +107,16 @@
         window.addEventListener('load', function() {
             setTimeout(generateQR, 500);
         });
+        
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log('Error attempting to enable fullscreen:', err.message);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
     </script>
 </body>
 </html>
