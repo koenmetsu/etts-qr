@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ELECTRIC THERAPY TATTOOS</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.5.3/qrcode.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -33,34 +33,33 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.02em;
-            padding: 2vh;
-            height: 100vh;
+            padding: 2rem;
+        }
+
+        .name {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 0.9;
+            margin-bottom: clamp(1rem, 3vw, 2rem);
         }
 
         .instruction {
-            font-size: clamp(3rem, 12vw, 10rem);
-            font-weight: 700;
-            line-height: 0.8;
-            margin-bottom: 2vh;
-            flex-shrink: 0;
-            height: 12vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 500;
+            line-height: 0.9;
+            margin-bottom: clamp(2rem, 5vw, 3rem);
         }
 
         #qrcode {
-            width: calc(100vh - 17vh);
-            height: calc(100vh - 17vh);
-            max-width: calc(100vw - 4vh);
-            max-height: calc(100vw - 4vh);
+            width: 80vmin;
+            height: 80vmin;
+            max-width: 600px;
+            max-height: 600px;
             background: #fff;
             border: 4px solid #fff;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0;
         }
 
         #qrcode canvas {
