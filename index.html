@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELECTRIC THERAPY TATTOOS</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            padding: 2vh;
+            height: 100vh;
+        }
+
+        .instruction {
+            font-size: clamp(3rem, 12vw, 10rem);
+            font-weight: 700;
+            line-height: 0.8;
+            margin-bottom: 2vh;
+            flex-shrink: 0;
+            height: 12vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        #qrcode {
+            width: calc(100vh - 17vh);
+            height: calc(100vh - 17vh);
+            max-width: calc(100vw - 4vh);
+            max-height: calc(100vw - 4vh);
+            background: #fff;
+            border: 4px solid #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        #qrcode canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="instruction">FOLLOW US. GET A STICKER</div>
+    <div id="qrcode"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+    <script>
+        function generateQR() {
+            const qrContainer = document.getElementById('qrcode');
+            const url = 'https://claude.ai/public/artifacts/deeb12a4-9950-4cec-9d6d-c6e6ed1b8d35';
+            
+            qrContainer.innerHTML = '';
+            
+            try {
+                // Use qrcode-generator library instead
+                const qr = qrcode(0, 'M');
+                qr.addData(url);
+                qr.make();
+                
+                // Create the QR code as HTML
+                const qrHTML = qr.createImgTag(8, 8);
+                qrContainer.innerHTML = qrHTML;
+                
+                // Style the image
+                const img = qrContainer.querySelector('img');
+                if (img) {
+                    img.style.width = '100%';
+                    img.style.height = '100%';
+                    img.style.imageRendering = 'pixelated';
+                }
+            } catch (error) {
+                console.error('QR Code generation failed:', error);
+                qrContainer.innerHTML = '<p style="color: red;">Failed to generate QR code</p>';
+            }
+        }
+
+        window.addEventListener('load', function() {
+            setTimeout(generateQR, 500);
+        });
+    </script>
+</body>
+</html>
